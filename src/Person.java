@@ -1,15 +1,18 @@
+import java.io.Serializable;
 
-public class Person {
+public class Person implements Serializable {
 
     private String name;
 
     private int age;
 
-    public Person(String name, int age){
+    private static final long serialVersionUID = 1L; // Número único
 
-        this.name=name;
+    public Person(String name, int age) {
 
-        this.age=age;
+        this.name = name;
+
+        this.age = age;
 
 
     }

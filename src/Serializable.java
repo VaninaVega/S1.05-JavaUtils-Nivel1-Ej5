@@ -16,18 +16,14 @@ public class Serializable {
     public static void serializePerson(Person persona) {
 
 
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream("persona.ser");
-
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("persona.ser"))) {
 
             objectOutputStream.writeObject(persona);
 
             System.out.println("Person object serialized in file: ");
 
-            objectOutputStream.close();
 
-        } catch (IOException e) {
+        } catch(IOException e) {
 
             System.out.println("Error serializing Person object: " + e.getMessage());
 
